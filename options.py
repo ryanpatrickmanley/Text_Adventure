@@ -13,7 +13,7 @@ def prompt(option_list):
   error_list = ["Please enter a valid input.", "Please pick the number of the choice you would like to make.", "ANY choice will do, really. Pick one. By number, please."]
   insult_list = ["Seriously, what's your problem?", "Are you well?", "Knock it off.", "Okay, you're really starting to bother me.", "Don't you have anything better to do than test the developer's forethought?", "...", "Really?", "See, this is what's wrong with *your generation*"]
   insult_counter = 0
-  
+  # TESTIN' GIT.
   while True:
   # IF the input is valid, print it back out and return the choice text.  
     prompt_input = input("Make your choice: ") # Get input at least once.
