@@ -9,7 +9,7 @@ flowers_smelled = False
 
 ##############################################################################
 option_list = [
-  "The Knight Errant!", "The Master Thief!", "The All-Powerful Wizard!"
+  "The Moosetaur Knight!", "The Goblin Thief!", "The Elvish Wizard!"
 ]
 
 while True:
@@ -18,14 +18,14 @@ while True:
   disp.options(option_list)
   prompt_chosen = disp.prompt(option_list)
 
-  if prompt_chosen == "The Knight Errant!":
+  if prompt_chosen == "The Moosetaur Knight!":
     job = 1
     disp.wrap(
-      "  Knights are masters of the righteous art of melee. With their keen combat sense and unrivaled strength, these warriors make their presence felt on any battlefield. Protectors of the realm, destroyers of blasphemy, lifters of heavy things."
+      "  Royal Paladins are masters of the righteous art of melee. With their keen combat sense and unrivaled strength, these warriors make their presence felt on any battlefield. Protectors of the realm, destroyers of blasphemy, lifters of heavy things."
     )
     input()
     disp.wrap(
-      "  You were once one of these honorable Knights, sworn to serve the queendom with nobility and valor. After an embarrassing event that would be better left unmentioned, you were stripped of your Royal rank. Now, you are a Knight Errant, searching the realm for an opportunity to prove yourself once more. Hefty steel armor grounds you to the earth. A sturdy warhammer is strapped to your back beneath an even sturdier shield. Your scuffed helm has seen plenty of blows, both given and received."
+      "  You were once one of these honorable Paladins, sworn to serve the queendom with nobility and valor. After an embarrassing event that would be better left unmentioned, you were stripped of your Royal rank. Now, you are a Knight Errant, searching the realm for an opportunity to prove yourself once more. Hefty steel armor grounds you to the earth. A sturdy warhammer is strapped to your rippling back beneath an even sturdier shield. Your scuffed antlers have seen plenty of blows, both given and received."
     )
     input()
     disp.wrap(
@@ -37,18 +37,18 @@ while True:
     )
     input()
 
-  elif prompt_chosen == "The Master Thief!":
+  elif prompt_chosen == "The Goblin Thief!":
     job = 2
     disp.wrap(
       """  Thieves are masters of stealth and subterfuge. With pinpoint perception and dexterity without equal, the secretive "Busker's Guild" has shaped the queendom from the shadows for generations. The guild is also known to perform at public venues occasionally. Purveyors of priceless artifacts, executors of Her Majesty's secret will, doers of filthy acts at a reasonable price."""
     )
     input()
     disp.wrap(
-      "  You are a master burglar, and a goblin. For the past decade you have honed your abilities to a bleeding edge. No high-security prison can hold you. No hidden doors elude your notice. No safe is... safe. A long line of pilfered pockets and purses trails behind you. Metaphorically, that is; you are a professional, and *never* leave a trace."
+      "  You are a master burglar, and a Goblin. For the past decade you have honed your abilities to a bleeding edge. No high-security prison can hold you. No hidden doors elude your notice. No safe is... safe. A long line of pilfered pockets and purses trails behind you. Metaphorically, that is; you are a professional, and *never* leave a trace."
     )
     input()
     disp.wrap(
-      """  Your Guildmates have described you as "raffish", "charismatic", and "utterly klepto." The dark shroud draped around your nimble form hides custom, studded leather armor. In your boot is a small dagger, mostly used as a tool for cutting and threatening. You face problems carefully and from all angles, using visual calculus and creative reasoning to rob people of all their shiny goodies."""
+      """  Your Guildmates have described you as "tricksy", "surprisingly charismatic", and "that horrible little Goblin." The dark shroud draped around your nimble form hides custom, studded leather armor. You are replete with well-hidden daggers, mostly used as tools for cutting and threatening. You tend to approach problems carefully and from all angles, using visual calculus and creative reasoning to rob people of all their shiny goodies."""
     )
     input()
     disp.wrap(
@@ -84,19 +84,22 @@ while True:
 # Intro, cliffside.
 disp.wrap(
   disp.job(job, [
-    """ Climbing up a seaside cliff with your bare hands is no easy task.  With jagged rocks and slippery handholds, the freezing stone saps your fingers of feeling.  Thickets of thorny flowers tug nastily on your skin as you grasp for support.""",
-    """  Scaling a seaside cliff is manageable for someone with your skillset, but still irritating. As you methodically sink a series of iron pitons into cracks in the crag, you grumble to yourself ruefully. Would it kill a Wizard to make something wheelchair accessible for once?""",
+    """ Climbing up a seaside cliff with your bare hands is no easy task.  With jagged rocks and slippery handholds, the freezing stone saps your fuzzy fingers of feeling.  Thickets of thorny flowers tug nastily on your fur as you grasp for support.""",
+    """  Scaling a seaside cliff is manageable for someone with your skillset, but still irritating. As you methodically sink a series of iron pitons into cracks in the crag, you grumble to yourself ruefully. Would it kill a Wizard to consider accessibility for once?""",
     "  Ascending a seaside cliff is a trivial task. Through the shimmering sphere surrounding your body, you watch a wall of stone glide silently downward before you. Glancing downward between your finely crafted slippers, a circle of children stare up at you in amazement. The stones they were previously ploinking off your magical bubble no longer reach."
   ]))
 
-option_list = [ #Present options
-  "Continue climbing.", "Stop to smell the flowers.",
-  "Give up. Go home, maybe curl up with a book."
-]
+option_list = []
+
+if job == 1: # Knight options
+  option_list = ["Continue climbing.", "Stop to smell the flowers.",
+  "Give up. Go home, maybe curl some dumbbells."]
+
+if job == 2: # Thief options
+  option_list = ["Continue climbing.", "Stop to smell the flowers.", "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest."]
+  
 if job == 3: # Wizard options
-  option_list[0] = "Continue ascending."
-  option_list[2] = "Give up. Go home, maybe curl up with a book."
-  option_list.insert(3, "What was that about a bubble spell?")
+  option_list = ["Continue ascending.", "Give up. Go home, maybe curl up with a book.", "What was that about a bubble spell?"]
 
 while True:
   disp.options(option_list)
@@ -104,40 +107,56 @@ while True:
   prompt_chosen = disp.prompt(option_list)
 
   if prompt_chosen == "Stop to smell the flowers.":
-    disp.wrap(
-      """  The muscles in your forearms work overtime as you momentarily relax the rest of your upper body. Your boots find purchase on a big mossy stone, providing a welcome foothold."""
-    )
+    if job == 1:
+      disp.wrap("""  The muscles in your forearms work overtime as you momentarily relax the rest of your upper body. Your horseshoes find purchase on a big mossy stone, providing a welcome hoofhold.""")
+    elif job == 2:
+      disp.wrap("""  The muscles in your forearms work overtime as you momentarily relax the rest of your upper body. Your boots find purchase on a big mossy stone, providing a welcome foothold.""")
+    
     input()
-    disp.wrap(
-      """  On the way up, your nervous system had dulled itself to the world. To protect you. This rest, while needed, is slowly allowing *feeling* back into your body."""
-    )
+    
+    disp.wrap("""  On the way up, your nervous system had dulled itself to the world. To protect you. This rest, while needed, is slowly allowing *feeling* back into your body.""")
     input()
-    disp.wrap(
-      """  Confident that you won't plummet to your death, you lean towards the wildflowers and inhale deeply."""
-    )
+    
+    disp.wrap("""  Confident that you won't plummet to your death, you lean towards the wildflowers and inhale deeply.""")
     input()
+    
     disp.wrap(
       """  The delicate floral fragrance contrasts the harsh burning in your muscles and lungs. A cool breeze off the ocean carries the briny smell of salt and seaweed. You hear from above you seagulls crying out balefully. From below come the roar and hiss of waves attacking the shore."""
     )
     input()
+    
     if flowers_smelled == False:
       option_list.append("Look around. Take in your surroundings.")
       flowers_smelled = True
 
-  elif prompt_chosen == "Continue climbing.":
+  elif prompt_chosen == "Continue climbing." or "Continue ascending.":
     if flowers_smelled == False:
-      disp.wrap(
-        "  No time for flowers. You'll get plenty of flowers when you're dead. Hopefully. Onward and upward!"
-      )
-    disp.wrap("""
-    The sun is blocked out by the tower which looms closer with each passing minute, casting a variety of long shadows. Sweat beads on your forehead, but with a deep breath and a tight grip, you march onward.
-    """)
+      disp.wrap("""  No time for flowers. You'll get plenty of flowers when you're dead. Hopefully. Onward and upward!""")
+      input()
+    if job == 1 or 2:
+      disp.wrap("""
+      The sun is blocked out by the tower which looms closer with each passing minute, casting a variety of long shadows. Sweat beads on your forehead, but with a deep breath and a tight grip, you march onward.
+      """)
+    else:
+      disp.wrap("""
+      The sun is blocked out by the tower which looms closer with each passing second, casting a variety of long shadows. You magic away some grime from beneath a fingernail as you float gently skyward.
+      """)
+    input()
     break  # PROGRESS
 
-  elif prompt_chosen == "Give up. Go home, maybe curl up with a book.":
-    disp.wrap("""
-  That's it. You're done. What kind of *treasure* could that dusty old wizard's tower really contain, anyway? God-killing swords? Untold mysteries? Bounties of wealth?
-  Nah, you say. To heck with this. You're going home to whittle soft woods and live the *good* life.
+  elif prompt_chosen == "Give up. Go home, maybe curl some dumbbells." or "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest." or "Give up. Go home, maybe curl up with a book.": #TODO
+    if job == 1: # Knight text
+      disp.wrap("""
+      That's it. You're done. What kind of *heresy* could that dusty old wizard's tower really contain, anyway? God-killing swords? Untold mysteries? Bounties of wealth?
+      """)
+      
+    elif job == 2: # Thief text
+      disp.wrap("""
+    That's it. You're done. What kind of *treasure* could that dusty old wizard's tower really contain, anyway? Priceless artifacts? Precious gemstones? Rare, immensely valuable books?
+    """)
+      input()
+      disp.wrap("""
+     Nah, you say. To heck with this. You're going home to pick pockets and live the *good* life.
 
     [GOOD END.]
     """)
