@@ -38,7 +38,7 @@ def prompt(option_list):
       wrap(random.choice(insult_list))  # ELSE, print random insults.
     insult_counter += 1                               # Tally one insult.
 
-# Function JOB
+# Function JOB: returns one of 3 variations, based on job.
 def job(job, variations_list):
   if job == 1:
     return variations_list[0]
@@ -47,6 +47,6 @@ def job(job, variations_list):
   elif job == 3:
     return variations_list[2]
 
-# Function WRAP
+# Function WRAP: prints text wrapped at a given line length.
 def wrap(text):
   print(textwrap.fill(text, width=42))
