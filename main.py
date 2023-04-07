@@ -1,4 +1,3 @@
-import disp
 import scenes
 
 # Declare some VARIABLES baby!
