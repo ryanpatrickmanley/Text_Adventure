@@ -3,6 +3,7 @@ import scenes
 # Declare some VARIABLES baby!
 job = 0
 flowers_smelled = False
+weapon = ""
 
 ##############################################################################
 
