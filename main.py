@@ -1,8 +1,9 @@
 import scenes
+import stat
 
 # Declare some VARIABLES baby!
-job = 0
-flowers_smelled = False
+global job = 0
+global flowers_smelled = False
 
 ##############################################################################
 
