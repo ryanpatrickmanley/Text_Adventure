@@ -139,12 +139,18 @@ def cliffside(job):
     elif prompt_chosen == "Give up. Go home, maybe curl some dumbbells." or "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest." or "Give up. Go home, maybe curl up with a book.": #TODO
       if job == 1: # Knight text
         disp.wrap("""
-        That's it. You're done. What kind of *heresy* could that dusty old wizard's tower really contain, anyway? God-killing swords? Untold mysteries? Bounties of wealth?
+        That's it. You're done. What kind of *heresy* could that dusty old wizard's tower really contain, anyway? Dark Magicks? Malevolent blood-daemons? Political literature!?
         """)
+        input()
+        disp.wrap("""
+      Nah, you say. To heck with this. You're going home to whittle soft woods and live the *good* life.
+  
+      [GOOD END.]
+      """)
         
       elif job == 2: # Thief text
         disp.wrap("""
-      That's it. You're done. What kind of *treasure* could that dusty old wizard's tower really contain, anyway? Priceless artifacts? Precious gemstones? Rare, immensely valuable books?
+      That's it. You're done. What kind of *treasure* could that dusty old wizard's tower really contain, anyway? Priceless artifacts? Precious gemstones? Rare, immensely valuable books!?
       """)
         input()
         disp.wrap("""
@@ -152,7 +158,19 @@ def cliffside(job):
   
       [GOOD END.]
       """)
-      exit()
+      
+      elif job == 3: # Wizard text
+        disp.wrap("""
+      That's it. You're done. What kind of *mysteries* could that dusty old wizard's tower really contain, anyway? Ancient mystical tomes? Esoteric libraries? Portals to bizarre, otherworldly planes of existence!?
+      """)
+        input()
+        disp.wrap("""
+       Nah, you say. To heck with this. You're going home to read dusty tomes and live the *good* life.
+  
+      [GOOD END.]
+      """)
+        
+      exit() # GAME END.
   
     elif prompt_chosen == "Look around. Take in your surroundings.":
       disp.wrap(
