@@ -5,6 +5,10 @@ import stat
 def intro():
 
   option_list = ["The Moosetaur Knight!", "The Goblin Thief!", "The Elvish Wizard!"]
+
+  stat.name = input("What is your name? ")
+  print("\nHello, {}.".format(stat.name))
+  input()
   
   while True:
   
