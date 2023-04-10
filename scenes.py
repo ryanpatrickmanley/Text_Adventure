@@ -4,15 +4,15 @@ import stat
 
 def intro():
 
-  option_list = ["The Moosetaur Knight!", "The Goblin Thief!", "The Elvish Wizard!"]
-
   stat.name = input("What is your name? ")
   print("\nHello, {}.".format(stat.name))
   input()
   
   while True:
+
+    option_list = ["The Moosetaur Knight!", "The Goblin Thief!", "The Elvish Wizard!"]
   
-    print("Who are you?")
+    disp.wrap("Who are you?")
     disp.options(option_list)
     prompt_chosen = disp.prompt(option_list)
   
@@ -23,11 +23,11 @@ def intro():
       )
       input()
       disp.wrap(
-        "  You were once one of these honorable Paladins, sworn to serve the queendom with nobility and valor. After an embarrassing event that would be better left unmentioned, you were stripped of your Royal rank. Now, you are a Knight Errant, searching the realm for an opportunity to prove yourself once more. Hefty steel armor grounds you to the earth. A sturdy warhammer is strapped to your rippling back beneath an even sturdier shield. Your scuffed antlers have seen plenty of blows, both given and received."
+        "  You, {}, were once one of these honorable Paladins, sworn to serve the queendom with nobility and valor. After an embarrassing event that would be better left unmentioned, you were stripped of your Royal rank. Now, you are a Knight Errant, searching the realm for an opportunity to prove yourself once more. Hefty steel armor grounds you to the earth. A sturdy warhammer is strapped to your rippling back beneath an even sturdier shield. Your scuffed antlers have seen plenty of blows, both given and received.".format(stat.name)
       )
       input()
       disp.wrap(
-        "  Before *the accident*, your former cohorts would have described you as loyal, practical, and only slightly judgy. You faced problems head-on, and might not have hesitated to use zealous force to achieve your goals. You were the Law. It is up to you what that means to you now."
+        "  Before *the accident*, your former cohorts would have described you as loyal, practical, and very very tall. You faced problems head-on, and might not have hesitated to use zealous force to achieve your goals. You were the Law. It is up to you what that means to you now."
       )
       input()
       disp.wrap(
@@ -42,7 +42,7 @@ def intro():
       )
       input()
       disp.wrap(
-        "  You are a master burglar, and a Goblin. For the past decade you have honed your abilities to a bleeding edge. No high-security prison can hold you. No hidden doors elude your notice. No safe is... safe. A long line of pilfered pockets and purses trails behind you. Metaphorically, that is; you are a professional, and *never* leave a trace."
+        "  You, {}, are a master burglar, and a Goblin. For the past decade you have honed your abilities to a bleeding edge. No high-security prison can hold you. No hidden doors elude your notice. No safe is... safe. A long line of pilfered pockets and purses trails behind you. Metaphorically, that is; you are a professional, and *never* leave a trace.".format(stat.name)
       )
       input()
       disp.wrap(
@@ -61,7 +61,7 @@ def intro():
       )
       input()
       disp.wrap(
-        """  You are a Wizard of immense power. Through decades of intense study and dedication you have laid bare to yourself the blueprints of reality. You possess a deep understanding of the natural and unnatural planes, and harness the expertise to act upon them. You are a member of an elite, educated stratum of society. Very few people have any idea what it is Wizards really do."""
+        """  You, {}, are a Wizard of immense power. Through decades of intense study and dedication you have laid bare to yourself the blueprints of reality. You possess a deep understanding of the natural and unnatural planes, and harness the expertise to act upon them. You are a member of an elite, educated stratum of society. Very few people have any idea what it is Wizards really do.""".format(stat.name)
       )
       input()
       disp.wrap(
@@ -70,11 +70,11 @@ def intro():
       disp.wrap(
         """  Today, you are visiting and old friend. You are headed to a camouflaged tower on the coast to see Gwynevere DeKell, a Wizard of no small reknown. She was your dorm mate at the University, and you have kept in touch via monthly letters. Until, that is, two days ago. Her letter is late, and a Wizard is *never* late.""")
       input()
-  
+
+    option_list = ["Yes! Let's go!", "No, wait, let me think about it first."]
     disp.wrap("Are you sure this is who you want to be?")
-    disp.options(["Yes! Let's go!", "No, wait, let me think about it first."])
-    prompt_chosen = disp.prompt(
-      ["Yes! Let's go!", "No, wait, let me look at those options again."])
+    disp.options(option_list)
+    prompt_chosen = disp.prompt(option_list)
   
     if prompt_chosen == "Yes! Let's go!":
       return job
