@@ -80,8 +80,6 @@ def intro():
       return job
 
 def cliffside(job):
-
-  flowers_smelled = False
   
   disp.wrap(
   disp.job(job, [
@@ -90,7 +88,7 @@ def cliffside(job):
     "  Ascending a seaside cliff is a trivial task. Through the shimmering sphere surrounding your body, you watch a wall of stone glide silently downward before you. Glancing downward between your finely crafted slippers, a circle of children stare up at you in amazement. The stones they were previously ploinking off your magical bubble no longer reach."
   ]))
 
-  option_list = disp.job(job, [["Continue climbing.", "Stop to smell the flowers.", "Give up. Go home, maybe curl some dumbbells."], ["Continue climbing.", "Stop to smell the flowers.", "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest."], ["Continue ascending.", "Give up. Go home, maybe curl up with a book.", "What was that about a bubble spell?"]])
+  option_list = disp.job(job, [["Continue climbing.", "Stop to smell the flowers.", "Give up. Go home, maybe curl some dumbbells."], ["Continue climbing.", "Stop to smell the flowers.", "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest."], ["Continue ascending.", "Stop to smell the flowers.", "Give up. Go home, maybe curl up with a book.", "What was that about a bubble spell?"]])
 
   
   while True:
@@ -99,27 +97,32 @@ def cliffside(job):
     prompt_chosen = disp.prompt(option_list)
   
     if prompt_chosen == "Stop to smell the flowers.":
-      if job == 1:
-        disp.wrap("""  The muscles in your forearms work overtime as you momentarily relax the rest of your upper body. Your horseshoes find purchase on a big mossy stone, providing a welcome hoofhold.""")
-      elif job == 2:
-        disp.wrap("""  The muscles in your forearms work overtime as you momentarily relax the rest of your upper body. Your boots find purchase on a big mossy stone, providing a welcome foothold.""")
+      if job == 3:
+        disp.wrap("""  All you can detect is a faint scent of stale air and ozone. Magic almost always smells like ozone.""")
+        input()
       
-      input()
-      
-      disp.wrap("""  On the way up, your nervous system had dulled itself to the world. To protect you. This rest, while needed, is slowly allowing *feeling* back into your body.""")
-      input()
-      
-      disp.wrap("""  Confident that you won't plummet to your death, you lean towards the wildflowers and inhale deeply.""")
-      input()
-      
-      disp.wrap(
-        """  The delicate floral fragrance contrasts the harsh burning in your muscles and lungs. A cool breeze off the ocean carries the briny smell of salt and seaweed. You hear from above you seagulls crying out balefully. From below come the roar and hiss of waves attacking the shore."""
-      )
-      input()
-      
-      if flowers_smelled == False:
-        option_list.append("Look around. Take in your surroundings.")
-        flowers_smelled = True
+      elif job == 1 or 2:
+        if job == 1:
+          disp.wrap("""  The muscles in your forearms work overtime as you momentarily relax the rest of your upper body. Your horseshoes find purchase on a big mossy stone, providing a welcome hoofhold.""")
+          input()
+        elif job == 2:
+          disp.wrap("""  The muscles in your forearms work overtime as you momentarily relax the rest of your upper body. Your boots find purchase on a big mossy stone, providing a welcome foothold.""")           
+          input()      
+        
+        disp.wrap("""  On the way up, your nervous system had dulled itself to the world. To protect you. This rest, while needed, is slowly allowing *feeling* back into your body.""")
+        input()
+        
+        disp.wrap("""  Confident that you won't plummet to your death, you lean towards the wildflowers and inhale deeply.""")
+        input()
+        
+        disp.wrap(
+          """  The delicate floral fragrance contrasts the harsh burning in your muscles and lungs. A cool breeze off the ocean carries the briny smell of salt and seaweed. You hear from above you seagulls crying out balefully. From below come the roar and hiss of waves attacking the shore."""
+        )
+        input()
+        
+        if stat.flowers_smelled == False:
+          option_list.append("Look around. Take in your surroundings.")
+          flowers_smelled = True
   
     elif prompt_chosen == "Continue climbing." or "Continue ascending.":
       if flowers_smelled == False:
