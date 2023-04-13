@@ -1,11 +1,17 @@
 import disp
-import stat
 
+############################################################
+# Initialize Stat variables.
+name = ""
+job = 0
+flowers_smelled = False
 
-def intro():
+############################################################
+# Returns job.
+def intro(): 
 
-  stat.name = input("What is your name? ")
-  print("\nHello, {}.".format(stat.name))
+  name = input("What is your name? ")
+  print("\nHello, {}.".format(name))
   input()
   
   while True:
@@ -23,7 +29,7 @@ def intro():
       )
       input()
       disp.wrap(
-        "  You, {}, were once one of these honorable Paladins, sworn to serve the queendom with nobility and valor. After an embarrassing event that would be better left unmentioned, you were stripped of your Royal rank. Now, you are a Knight Errant, searching the realm for an opportunity to prove yourself once more. Hefty steel armor grounds you to the earth. A sturdy warhammer is strapped to your rippling back beneath an even sturdier shield. Your scuffed antlers have seen plenty of blows, both given and received.".format(stat.name)
+        "  You, {}, were once one of these honorable Paladins, sworn to serve the queendom with nobility and valor. After an embarrassing event that would be better left unmentioned, you were stripped of your Royal rank. Now, you are a Knight Errant, searching the realm for an opportunity to prove yourself once more. Hefty steel armor grounds you to the earth. A sturdy warhammer is strapped to your rippling back beneath an even sturdier shield. Your scuffed antlers have seen plenty of blows, both given and received.".format(name)
       )
       input()
       disp.wrap(
@@ -42,7 +48,7 @@ def intro():
       )
       input()
       disp.wrap(
-        "  You, {}, are a master burglar, and a Goblin. For the past decade you have honed your abilities to a bleeding edge. No high-security prison can hold you. No hidden doors elude your notice. No safe is... safe. A long line of pilfered pockets and purses trails behind you. Metaphorically, that is; you are a professional, and *never* leave a trace.".format(stat.name)
+        "  You, {}, are a master burglar, and a Goblin. For the past decade you have honed your abilities to a bleeding edge. No high-security prison can hold you. No hidden doors elude your notice. No safe is... safe. A long line of pilfered pockets and purses trails behind you. Metaphorically, that is; you are a professional, and *never* leave a trace.".format(name)
       )
       input()
       disp.wrap(
@@ -54,14 +60,14 @@ def intro():
       )
       input()
   
-    else:
+    elif prompt_chosen == "The Elvish Wizard!":
       job = 3
       disp.wrap(
         """  Wizards are masters of mind and matter. With universally robust intelligence and a general disregard for the so-called "laws" of physics, Wizards have an unmatched control of the world around them. Virtuosos of the fabric of the universe, invaluable advisors to royalty, riders of *lightning.*"""
       )
       input()
       disp.wrap(
-        """  You, {}, are a Wizard of immense power. Through decades of intense study and dedication you have laid bare to yourself the blueprints of reality. You possess a deep understanding of the natural and unnatural planes, and harness the expertise to act upon them. You are a member of an elite, educated stratum of society. Very few people have any idea what it is Wizards really do.""".format(stat.name)
+        """  You, {}, are a Wizard of immense power. Through decades of intense study and dedication you have laid bare to yourself the blueprints of reality. You possess a deep understanding of the natural and unnatural planes, and harness the expertise to act upon them. You are a member of an elite, educated stratum of society. Very few people have any idea what it is Wizards really do.""".format(name)
       )
       input()
       disp.wrap(
@@ -77,9 +83,10 @@ def intro():
     prompt_chosen = disp.prompt(option_list)
   
     if prompt_chosen == "Yes! Let's go!":
-      return job
+      return
 
-def cliffside(job):
+############################################################
+def cliffside():
   
   disp.wrap(
   disp.job(job, [
@@ -120,7 +127,7 @@ def cliffside(job):
         )
         input()
         
-        if stat.flowers_smelled == False:
+        if flowers_smelled == False:
           option_list.append("Look around. Take in your surroundings.")
           flowers_smelled = True
   
