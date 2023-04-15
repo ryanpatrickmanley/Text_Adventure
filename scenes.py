@@ -93,8 +93,10 @@ def cliffside():
 
   
   while True:
+
+    #TODO add flag-based options.
+    
     disp.options(option_list)
-  
     prompt_chosen = disp.prompt(option_list)
   
     if prompt_chosen == "Stop to smell the flowers.":
@@ -205,7 +207,11 @@ def cliffside():
     elif prompt_chosen == "Hold on, what was that about a bubble spell?":
       disp.wrap("""  Alastair's Bubble? What, the elevator spell? It's not particularly exciting. Surely you would rather hear about one of the *cool* spells. Like Fireball, perhaps?""")
       input()
-      disp.wrap()
+      while True:
+        
+        option_list = ["Nuh uh. Bubble spell please.", ]
+        
+        disp.wrap()
       
   # NEXT SCENE
   disp.wrap("moving on SUCCESS")
