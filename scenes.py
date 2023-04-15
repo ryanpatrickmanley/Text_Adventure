@@ -1,13 +1,8 @@
 import disp
+import data
+
 
 ############################################################
-# Initialize Stat variables.
-name = ""
-job = 0
-flowers_smelled = False
-
-############################################################
-# Returns job.
 def intro(): 
 
   name = input("What is your name? ")
@@ -23,7 +18,7 @@ def intro():
     prompt_chosen = disp.prompt(option_list)
   
     if prompt_chosen == "The Moosetaur Knight!":
-      job = 1
+      data.set_data("job", 1)
       disp.wrap(
         "  Royal Paladins are masters of the righteous art of melee. With their keen combat sense and unrivaled strength, these warriors make their presence felt on any battlefield. Protectors of the realm, destroyers of blasphemy, lifters of heavy things."
       )
@@ -42,7 +37,7 @@ def intro():
       input()
   
     elif prompt_chosen == "The Goblin Thief!":
-      job = 2
+      data.set_data("job", 2)
       disp.wrap(
         """  Thieves are masters of stealth and subterfuge. With pinpoint perception and dexterity without equal, the secretive "Busker's Guild" has shaped the queendom from the shadows for generations. The guild is also known to perform at public venues occasionally. Purveyors of priceless artifacts, executors of Her Majesty's secret will, doers of filthy acts at a reasonable price."""
       )
@@ -61,7 +56,7 @@ def intro():
       input()
   
     elif prompt_chosen == "The Elvish Wizard!":
-      job = 3
+      data.set_data("job", 3)
       disp.wrap(
         """  Wizards are masters of mind and matter. With universally robust intelligence and a general disregard for the so-called "laws" of physics, Wizards have an unmatched control of the world around them. Virtuosos of the fabric of the universe, invaluable advisors to royalty, riders of *lightning.*"""
       )
@@ -88,14 +83,13 @@ def intro():
 ############################################################
 def cliffside():
   
-  disp.wrap(
-  disp.job(job, [
+  disp.wrap(disp.job(data.get_data("job"), [
     """ Climbing up a seaside cliff with your bare hands is no easy task.  With jagged rocks and slippery handholds, the freezing stone saps your fuzzy fingers of feeling.  Thickets of thorny flowers tug nastily on your fur as you grasp for support.""",
     """  Scaling a seaside cliff is manageable for someone with your skillset, but still irritating. As you methodically sink a series of iron pitons into cracks in the crag, you grumble to yourself ruefully. Would it kill a Wizard to consider accessibility for once?""",
     "  Ascending a seaside cliff is a trivial task. Through the shimmering sphere surrounding your body, you watch a wall of stone glide silently downward before you. Glancing downward between your finely crafted slippers, a circle of children stare up at you in amazement. The stones they were previously ploinking off your magical bubble no longer reach."
   ]))
 
-  option_list = disp.job(job, [["Continue climbing.", "Stop to smell the flowers.", "Give up. Go home, maybe curl some dumbbells."], ["Continue climbing.", "Stop to smell the flowers.", "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest."], ["Continue ascending.", "Stop to smell the flowers.", "Give up. Go home, maybe curl up with a book.", "What was that about a bubble spell?"]])
+  option_list = disp.job(data.get_data("job"), [["Continue climbing.", "Stop to smell the flowers.", "Give up. Go home, maybe curl some dumbbells."], ["Continue climbing.", "Stop to smell the flowers.", "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest."], ["Continue ascending.", "Stop to smell the flowers.", "Give up. Go home, maybe curl up with a book.", "What was that about a bubble spell?"]])
 
   
   while True:
@@ -104,15 +98,15 @@ def cliffside():
     prompt_chosen = disp.prompt(option_list)
   
     if prompt_chosen == "Stop to smell the flowers.":
-      if job == 3:
+      if data.get_data("job") == 3:
         disp.wrap("""  All you can detect is a faint scent of stale air and ozone. Magic almost always smells like ozone.""")
         input()
       
-      elif job == 1 or 2:
-        if job == 1:
+      elif data.get_data("job") == 1 or 2:
+        if data.get_data("job") == 1:
           disp.wrap("""  The muscles in your forearms work overtime as you momentarily relax the rest of your upper body. Your horseshoes find purchase on a big mossy stone, providing a welcome hoofhold.""")
           input()
-        elif job == 2:
+        elif data.get_data("job") == 2:
           disp.wrap("""  The muscles in your forearms work overtime as you momentarily relax the rest of your upper body. Your boots find purchase on a big mossy stone, providing a welcome foothold.""")           
           input()      
         
@@ -127,15 +121,15 @@ def cliffside():
         )
         input()
         
-        if flowers_smelled == False:
+        if data.get_data("flowers_smelled") == False:
           option_list.append("Look around. Take in your surroundings.")
-          flowers_smelled = True
+          data.set_data("flowers_smelled", True)
   
     elif prompt_chosen == "Continue climbing." or "Continue ascending.":
-      if flowers_smelled == False:
+      if data.get_data("flowers_smelled") == False:
         disp.wrap("""  No time for flowers. You'll get plenty of flowers when you're dead. Hopefully. Onward and upward!""")
         input()
-      if job == 1 or 2:
+      if data.get_data("job") == 1 or 2:
         disp.wrap("""
         The sun is blocked out by the tower which looms closer with each passing minute, casting a variety of long shadows. Sweat beads on your forehead, but with a deep breath and a tight grip, you march onward.
         """)
@@ -147,7 +141,7 @@ def cliffside():
       break  # PROGRESS
   
     elif prompt_chosen == "Give up. Go home, maybe curl some dumbbells." or "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest." or "Give up. Go home, maybe curl up with a book.": #TODO
-      if job == 1: # Knight text
+      if data.get_data("job") == 1: # Knight text
         disp.wrap("""
         That's it. You're done. What kind of *heresy* could that dusty old wizard's tower really contain, anyway? Dark Magicks? Malevolent blood-daemons? Political literature!?
         """)
@@ -158,7 +152,7 @@ def cliffside():
       [GOOD END.]
       """)
         
-      elif job == 2: # Thief text
+      elif data.get_data("job") == 2: # Thief text
         disp.wrap("""
       That's it. You're done. What kind of *treasure* could that dusty old wizard's tower really contain, anyway? Priceless artifacts? Precious gemstones? Rare, immensely valuable books!?
       """)
@@ -169,7 +163,7 @@ def cliffside():
       [GOOD END.]
       """)
       
-      elif job == 3: # Wizard text
+      elif data.get_data("job") == 3: # Wizard text
         disp.wrap("""
       That's it. You're done. What kind of *mysteries* could that dusty old wizard's tower really contain, anyway? Ancient mystical tomes? Esoteric libraries? Portals to bizarre, otherworldly planes of existence!?
       """)
