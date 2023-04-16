@@ -26,7 +26,7 @@ def prompt(option_list):
         prompt_chosen = option_list[prompt_int - 1]   # Get option text.
         print("\nYou chose:")
         wrap(prompt_chosen)               # Wrap and Print chosen option text.
-        print("")
+        input()
         return prompt_chosen                           # RETURN chosen option text.
 
   # ELSE it's not an option, or not an integer. Throw error and repeat.
@@ -34,9 +34,10 @@ def prompt(option_list):
       print("")
       wrap(error_list[insult_counter])  # Print errors.
     else:
-      print("\n")
+      print("")
       wrap(random.choice(insult_list))  # ELSE, print random insults.
     insult_counter += 1                               # Tally one insult.
+    input()
 
 # Function JOB: returns one of 3 variations, based on job.
 def job(job, variations_list):

@@ -1,12 +1,8 @@
 import scenes
+###########################################################
 
-# Declare some VARIABLES baby!
-job = 0
-flowers_smelled = False
-
-##############################################################################
-
+# Intro.
 job = scenes.intro()
 
-# Intro, cliffside.
-flowers_smelled = scenes.cliffside(job)
+# Cliffside.
+scenes.cliffside()
