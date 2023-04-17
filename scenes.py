@@ -100,6 +100,7 @@ def cliffside():
     prompt_chosen = disp.prompt(option_list)
   
     if prompt_chosen == "Stop to smell the flowers.":
+      option_list.remove("Stop to smell the flowers.")
       if data.get_data("job") == 3:
         disp.wrap("""  All you can detect is a faint scent of stale air and ozone. Magic almost always smells like ozone.""")
         input()
@@ -132,12 +133,10 @@ def cliffside():
         disp.wrap("""  No time for flowers. You'll get plenty of flowers when you're dead. Hopefully. Onward and upward!""")
         input()
       if data.get_data("job") == 1 or 2:
-        disp.wrap("""
-        The sun is blocked out by the tower which looms closer with each passing minute, casting a variety of long shadows. Sweat beads on your forehead, but with a deep breath and a tight grip, you march onward.
+        disp.wrap("""  The sun is blocked out by the tower which looms closer with each passing minute, casting a variety of long shadows. Sweat beads on your forehead, but with a deep breath and a tight grip, you march onward.
         """)
       else:
-        disp.wrap("""
-        The sun is blocked out by the tower which looms closer with each passing second, casting a variety of long shadows. You magic away some grime from beneath a fingernail as you float gently skyward.
+        disp.wrap("""  The sun is blocked out by the tower which looms closer with each passing second, casting a variety of long shadows. You magic away some grime from beneath a fingernail as you float gently skyward.
         """)
       input()
       break  # PROGRESS
