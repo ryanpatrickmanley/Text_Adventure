@@ -7,9 +7,9 @@ data = {
 }
 
 
-def get_data(key):
+def getter(key):
   return data.get(key)
 
 
-def set_data(key, value):
+def setter(key, value):
   data[key] = value
