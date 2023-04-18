@@ -40,7 +40,7 @@ def prompt(option_list):
     input()
 
 # Function JOB: returns one of 3 variations, based on job.
-def job(job, variations_list):
+def jobswitch(job, variations_list):
   if job == 1:
     return variations_list[0]
   elif job == 2:
