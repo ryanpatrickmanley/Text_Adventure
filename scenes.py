@@ -120,7 +120,6 @@ def cliffside():
     prompt_chosen = disp.prompt(option_list)
 
     if prompt_chosen == "Stop to smell the flowers.":
-      option_list.remove("Stop to smell the flowers.")
       if data.getter("job") == 3:
         disp.wrap(
           """  All you can detect is a faint scent of stale air and ozone. Magic almost always smells like ozone."""
@@ -153,11 +152,11 @@ def cliffside():
           """  The delicate floral fragrance contrasts the harsh burning in your muscles and lungs. A cool breeze off the ocean carries the briny smell of salt and seaweed. You hear from above you seagulls crying out balefully. From below come the roar and hiss of waves attacking the shore."""
         )
         input()
-
+        
+        option_list.remove("Stop to smell the flowers.")
         option_list.append("Look around. Take in your surroundings.")
         data.setter("flowers_smelled", True)
-
-
+        
 
     elif prompt_chosen == "Give up. Go home, maybe curl some dumbbells." or "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest." or "Give up. Go home, maybe curl up with a book.":
       print("WE IN THERE, WHERE THAT ERROR???")
