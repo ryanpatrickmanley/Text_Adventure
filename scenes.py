@@ -152,11 +152,10 @@ def cliffside():
           """  The delicate floral fragrance contrasts the harsh burning in your muscles and lungs. A cool breeze off the ocean carries the briny smell of salt and seaweed. You hear from above you seagulls crying out balefully. From below come the roar and hiss of waves attacking the shore."""
         )
         input()
-        
+
         option_list.remove("Stop to smell the flowers.")
         option_list.append("Look around. Take in your surroundings.")
         data.setter("flowers_smelled", True)
-        
 
     elif prompt_chosen == "Give up. Go home, maybe curl some dumbbells." or "Give up. Go home, maybe curl up with the newest issue of Locksmith's Digest." or "Give up. Go home, maybe curl up with a book.":
       print("WE IN THERE, WHERE THAT ERROR???")
@@ -197,8 +196,8 @@ def cliffside():
       exit()  # GAME END.
 
     elif prompt_chosen == "Continue climbing." or "Continue ascending.":
-      if (data.getter("flowers_smelled")
-          == False) and (data.getter("job") == 1 or 2):
+      if (data.getter("flowers_smelled") == False) and (data.getter("job") == 1
+                                                        or 2):
         disp.wrap(
           """  No time for flowers. You'll get plenty of flowers when you're dead. Hopefully. Onward and upward!"""
         )
@@ -217,8 +216,8 @@ def cliffside():
           """  The sun is blocked out by the tower which looms closer with each passing moment, casting a variety of long shadows. You magic away some grime from beneath a fingernail as you float gently skyward.
         """)
       input()
-      break  # PROGRESS    
-    
+      break  # PROGRESS
+
     elif prompt_chosen == "Look around. Take in your surroundings.":
       disp.wrap(
         """  During a long climb, pausing for too long can be deadly. The view, you decide, will be worth the risk. You tighten your grip on a dependable-looking root vine and turn away from the stone wall."""
@@ -250,10 +249,11 @@ def cliffside():
         """  Alastair's Bubble? What, the elevator spell? It's not particularly exciting. Surely you would rather hear about one of the *cool* spells. Like Fireball, perhaps?"""
       )
       input()
+      
       while True:
-
         option_list = [
           "Nuh uh. Bubble spell please.",
+          "Actually, yes. I *would* like to hear about a fun spell like fireball."
         ]
 
         disp.wrap()
